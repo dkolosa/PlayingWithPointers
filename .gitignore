@@ -1,0 +1,11 @@
+#bin
+[Dd]ebug*/
+[bB]in*/
+obj*/
+
+
+#ide configs
+*.cdp
+*.depend
+*.layout
+*.cbp
