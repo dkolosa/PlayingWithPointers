@@ -7,16 +7,38 @@ using namespace std;
 
 //A program to experiment to wonderfulness of pointers
 
+void dtSize();
+void passByRefAndValue(); 
 void passByValue(int value);
 void passByRef(int* refPass);
-
+void arrays1D();
+void heapDemo();
+void arrays2D();
 
 int main()
 {
+    //Prints the sizes of different data types
+  // dtSize();
 
+    //Example of passing a variable by value and by reference
+   // passByRefAndValue();
 
-/*
-    //Print out size of values
+    //Creating and manipulating 1D arrays
+   // arrays1D();
+
+    //Example of using the heap
+   // heapDemo();
+
+    //Creating and manipulating 2D arrays
+   // arrays2D();
+
+    return 0;
+
+}
+
+void dtSize()
+{
+    //Print out size of various datatypes
     char c = 'h';
     int i = 7;
     int *p = &i;
@@ -31,11 +53,12 @@ int main()
     cout << "the size of double in bytes is: " << sizeof(d) << " bytes"<< endl;
     cout << "the size of short in bytes is: " << sizeof(s) << " bytes"<< endl;
     cout << "the size of pointer in bytes is: " << sizeof(p) << " bytes"<< endl;
-*/
 
+}
 
-/*
-    //Pass by value
+void passByRefAndValue() 
+{
+        //Pass by value
     int meat = 7;
     int veg = 10;
 
@@ -44,11 +67,33 @@ int main()
 
     cout << "The value of meat: " << meat << endl;
     cout << "The value of veg: " << veg << endl;
+}
 
-    //cout << "Hello world!" << endl;
-*/
+void add2dArrays(int* arrayA, int* arrayB)
+{
 
-/*
+
+}
+
+
+void passByValue(int value)
+{
+// This function will use the pass by value with is just a copy
+// Change the value of meat
+    value = 27;
+
+}
+
+void passByRef(int *refPass)
+{
+//This function takes in a pointer to pass by reference
+// Pass by reference changes the value of a variable by the memeory address
+//Can be more unsafe but improved performance
+    *refPass = 20;
+}
+
+void arrays1D()
+{
     //fun with arrays
 
     int x[] = {1,5,7,12,13};
@@ -68,25 +113,6 @@ int main()
     //dereference the index of the array
     printf("x+2 \t \t %d \n",*(x+2));
 
-*/
-
-/*
-    char *name = "The name";
-    puts(name);
-    name = "the new name";
-    puts(name);
-*/
-
-/*
-    //The HEAP!!
-
-    int *points;
-
-    points = (int *) malloc(5 * sizeof(int));
-
-    free(points);
-*/
-/*
     //Do some large matrix math
     unsigned short int arraySize= 10000;
     int *outputArray;
@@ -120,7 +146,21 @@ int main()
     free(outputArray);
     free(inputArrayA);
     free(inputArrayB);
-    */
+}
+
+void heapDemo()
+{
+    //The HEAP!!
+
+    int *points;
+
+    points = (int *) malloc(5 * sizeof(int));
+
+    free(points);
+}
+
+void arrays2D() 
+{
 
     //now do some larger matrix math
     unsigned short int arraySize= 100;
@@ -156,32 +196,6 @@ int main()
 
     }
 
-
-    return 0;
-
-}
-
-void add2dArrays(int* arrayA, int* arrayB)
-{
-
-
-}
-
-
-void passByValue(int value)
-{
-// This function will use the pass by value with is just a copy
-// Change the value of meat
-    value = 27;
-
-}
-
-void passByRef(int *refPass)
-{
-//This function takes in a pointer to pass by reference
-// Pass by reference changes the value of a variable by the memeory address
-//Can be more unsafe but improved performance
-    *refPass = 20;
 }
 
 
