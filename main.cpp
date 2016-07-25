@@ -8,7 +8,7 @@ using namespace std;
 //A program to experiment to wonderfulness of pointers
 
 void dtSize();
-void passByRefAndValue(); 
+void passByRefAndValue();
 void passByValue(int value);
 void passByRef(int* refPass);
 void arrays1D();
@@ -30,7 +30,7 @@ int main()
    // heapDemo();
 
     //Creating and manipulating 2D arrays
-   // arrays2D();
+    arrays2D();
 
     return 0;
 
@@ -56,7 +56,7 @@ void dtSize()
 
 }
 
-void passByRefAndValue() 
+void passByRefAndValue()
 {
         //Pass by value
     int meat = 7;
@@ -159,17 +159,23 @@ void heapDemo()
     free(points);
 }
 
-void arrays2D() 
+void arrays2D()
 {
 
     //now do some larger matrix math
-    unsigned short int arraySize= 100;
+    unsigned short int arraySize= 1000;
     //printf("Enter the size of the array");
     //scanf("%d", &arraySize);
 
-    int outputArray[arraySize][arraySize];
-    int inputArrayA[arraySize][arraySize];
-    int inputArrayB[arraySize][arraySize];
+    int **arr = new int*[arraySize];
+    int **arrb = new int*[arraySize];
+    int **arrc = new int*[arraySize];
+
+    for (int i = 0; i < arraySize; i++){
+        arr[i] = new int[arraySize];
+        arrb[i] = new int[arraySize];
+        arrc[i] = new int[arraySize];
+    }
 
     //Seed the random numbers
     srand(time(NULL));
@@ -177,25 +183,28 @@ void arrays2D()
     //fill A and B with random numbers
     for(int i = 0; i < arraySize; i++){
         for (int j = 0 ; j < arraySize; j++) {
-            inputArrayA[i][j] = rand() % 50 + 1; //Between 1 and 50
-            inputArrayB[i][j] = rand() % 50 + 1;
+            arr[i][j] = rand() % 50 + 1; //Between 1 and 50
+            arrb[i][j] = rand() % 50 + 1;
         }
     }
 
     for (int i = 0; i < arraySize; i++){
         for (int j = 0; j < arraySize; j++){
-             outputArray[i][j] = inputArrayA[i][j] + inputArrayB[i][j];
+             arrc[i][j] = arr[i][j] + arrb[i][j];
         }
     }
 
     for (int i = 0; i < arraySize; i++){
         for (int j = 0; j < arraySize; j++){
-             printf("%d \t", outputArray[i][j]);
+             printf("%d \t", arrc[i][j]);
         }
         printf("\n");
-
     }
 
+    //Clean up the arrays
+    delete[] arr;
+    delete[] arrb;
+    delete[] arrc;
 }
 
 
